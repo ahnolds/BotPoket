@@ -28,7 +28,7 @@ let poketResponses = [
 	'<:slowpoke:765233588630978620>',
 ];
 
-client.on('message', message => {
+client.on('message', await message => {
 	if (message.guild.id === '568864639362793472') { // In MD PVP Alliance
 		if (message.member.id === '337692171723341845') { // From JRE
 			if (message.content.includes('https://www.reddit.com/r/TheSilphArena')) { // Links to TSA
