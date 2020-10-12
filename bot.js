@@ -13,12 +13,12 @@ let poketResponses = [
 	's l o w',
 	'w e a k',
 	'Slow pin',
-	's\nm\nh'.
+	's\nm\nh',
 	'Swoldowoodo',
 	'Slow',
 	'Weak',
 	'1 min too late',
-	':slowpoke:',
+	'<:slowpoke:765233588630978620>',
 ];
 
 client.on('message', message => {
@@ -29,9 +29,11 @@ client.on('message', message => {
 					// Select a response to send
 					let response = poketResponses[Math.floor(Math.random() * poketResponses.length)];
 
-					// Handle emojis
+					// Handle emojis (not currently used, but could be helpful so it gets to stay)
 					if (response.startsWith(':') && response.endsWith(':')) {
-						response = client.emojis.find(emoji => emoji.name === response.replace(':',''));
+						const emoji_name = response.replace(/:/g, '');
+						const emoji = client.emojis.cache.find(emoji => emoji.name === emoji_name);
+						response = `<:${emoji.name}:${emoji.id}>`;
 					}
 
 					// Send the response
