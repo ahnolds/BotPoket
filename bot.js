@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const {token} = require('./auth.json');
+//const {token} = require('./auth.json');
 const client = new Discord.Client({
 	ws: {
 		intents: [
@@ -63,5 +63,5 @@ client.on('message', message => {
 	}
 });
  
-//client.login(process.env.BOT_TOKEN);
-client.login(token);
+client.login(process.env.BOT_TOKEN);
+//client.login(token);
