@@ -1,6 +1,13 @@
 const Discord = require('discord.js');
 const {token} = require('./auth.json');
-const client = new Discord.Client();
+const client = new Discord.Client({
+	ws: {
+		intents: [
+			Discord.Intents.FLAGS.GUILD_MESSAGES,
+			Discord.Intents.FLAGS.GUILDS,
+		]
+	}
+});
 
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
