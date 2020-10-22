@@ -30,29 +30,29 @@ let poketResponses = [
 
 client.on('message', async message => {
 	if (message.guild.id === '568864639362793472') { // In MD PVP Alliance
-		if (message.member.id === '337692171723341845') { // From JRE
-			if (message.content.includes('https://www.reddit.com/r/TheSilphArena')) { // Links to TSA
-				if (message.pinnable && !message.pinned) {
-					// Select a response to send
-					let response = poketResponses[Math.floor(Math.random() * poketResponses.length)];
+		// From JRE linking to TSA or from 3L linking to stadiumgaming
+		if ((message.member.id === '337692171723341845' && message.content.includes('https://www.reddit.com/r/TheSilphArena')) ||
+		    (message.member.id === '145028591837511680' && message.content.includes('https://www.stadiumgaming.gg'))) {
+			if (message.pinnable && !message.pinned) {
+				// Select a response to send
+				let response = poketResponses[Math.floor(Math.random() * poketResponses.length)];
 
-					// Handle emojis (not currently used, but could be helpful so it gets to stay)
-					if (response.startsWith(':') && response.endsWith(':')) {
-						const emoji_name = response.replace(/:/g, '');
-						const emoji = client.emojis.cache.find(emoji => emoji.name === emoji_name);
-						response = `<:${emoji.name}:${emoji.id}>`;
-					}
-
-					// Send the response
-					try {
-						await message.channel.send(response);
-					} catch(err) {
-						console.error(err);
-					}
-
-					// Pin the message
-					message.pin().catch(console.error);
+				// Handle emojis (not currently used, but could be helpful so it gets to stay)
+				if (response.startsWith(':') && response.endsWith(':')) {
+					const emoji_name = response.replace(/:/g, '');
+					const emoji = client.emojis.cache.find(emoji => emoji.name === emoji_name);
+					response = `<:${emoji.name}:${emoji.id}>`;
 				}
+
+				// Send the response
+				try {
+					await message.channel.send(response);
+				} catch(err) {
+					console.error(err);
+				}
+
+				// Pin the message
+				message.pin().catch(console.error);
 			}
 		}
 		if (message.member.id === '506940270558838809') { // From Poket
