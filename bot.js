@@ -60,6 +60,11 @@ client.on('message', async message => {
 				message.reply('NO U').catch(console.error);
 			}
 		}
+		if (message.member.id === '340594412209831946') { // From Midget
+			if (Message.content.match(/\b(?:son|mom|child)\b/i)) {
+				message.reply('You\'re not my real mom!').catch(console.error);
+			}
+		}
 	}
 });
  
