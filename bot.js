@@ -65,6 +65,12 @@ client.on('message', async message => {
 				message.reply('You\'re not my real mom!').catch(console.error);
 			}
 		}
+		if (message.member.id === '330455815972454412') { // From SirJamz
+			if (Message.content.match(/\bbot\b|bot\s*poket/i)) {
+				message.react('🔱').catch(console.error);
+				message.react('732274621704962178').catch(console.error);
+			}
+		}
 	}
 });
  
