@@ -1,12 +1,10 @@
 const Discord = require('discord.js');
 //const {token} = require('./auth.json');
 const client = new Discord.Client({
-	ws: {
-		intents: [
-			Discord.Intents.FLAGS.GUILD_MESSAGES,
-			Discord.Intents.FLAGS.GUILDS,
-		]
-	}
+	intents: [
+		Discord.GatewayIntentBits.GuildMessages,
+		Discord.GatewayIntentBits.Guilds,
+	]
 });
 
 client.once('ready', () => {
