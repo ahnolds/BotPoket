@@ -71,6 +71,10 @@ client.on('message', async message => {
 				message.react('732274621704962178').catch(console.error);
 			}
 		}
+	} else if (message.guild.id === '601944898723381259') { // In test
+		if (message.content == '!botpoket') {
+			message.react('👍').catch(console.error);
+		}
 	}
 });
  
