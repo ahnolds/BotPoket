@@ -29,8 +29,8 @@ let poketResponses = [
 
 client.on(Discord.Events.MessageCreate, async message => {
 	if (message.guild.id === '568864639362793472') { // In MD PVP Alliance
-		// From JRE linking to TSA or from 3L linking to stadiumgaming
-		if ((message.member.id === '337692171723341845' && message.content.includes('https://www.reddit.com/r/TheSilphArena')) ||
+		// From JRE linking to TSR or from 3L linking to stadiumgaming
+		if ((message.member.id === '337692171723341845' && message.content.includes('https://www.reddit.com/r/TheSilphRoad')) ||
 		    (message.member.id === '145028591837511680' && message.content.includes('https://www.stadiumgaming.gg'))) {
 			if (message.pinnable && !message.pinned) {
 				// Select a response to send
