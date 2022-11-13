@@ -26,7 +26,7 @@ let poketResponses = [
 	'<:slowpoke:765233588630978620>',
 ];
 
-client.on('message', async message => {
+client.on('messageCreate', async message => {
 	if (message.guild.id === '568864639362793472') { // In MD PVP Alliance
 		// From JRE linking to TSA or from 3L linking to stadiumgaming
 		if ((message.member.id === '337692171723341845' && message.content.includes('https://www.reddit.com/r/TheSilphArena')) ||
@@ -71,6 +71,7 @@ client.on('message', async message => {
 		}
 	} else if (message.guild.id === '601944898723381259') { // In test
 		if (message.content == '!botpoket') {
+			message.reply('Yep, that\'s me!');
 			message.react('👍').catch(console.error);
 		}
 	}
