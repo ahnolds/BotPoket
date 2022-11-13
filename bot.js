@@ -2,12 +2,13 @@ const Discord = require('discord.js');
 //const {token} = require('./auth.json');
 const client = new Discord.Client({
 	intents: [
+		Discord.GatewayIntentBits.MessageContent,
 		Discord.GatewayIntentBits.GuildMessages,
 		Discord.GatewayIntentBits.Guilds,
 	]
 });
 
-client.once('ready', () => {
+client.once(Discord.Events.ClientReady, () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
@@ -26,7 +27,7 @@ let poketResponses = [
 	'<:slowpoke:765233588630978620>',
 ];
 
-client.on('messageCreate', async message => {
+client.on(Discord.Events.MessageCreate, async message => {
 	if (message.guild.id === '568864639362793472') { // In MD PVP Alliance
 		// From JRE linking to TSA or from 3L linking to stadiumgaming
 		if ((message.member.id === '337692171723341845' && message.content.includes('https://www.reddit.com/r/TheSilphArena')) ||
